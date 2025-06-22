@@ -33,10 +33,10 @@ const TodoForm = ({ onAddTodo, categories, editingTodo, onUpdateTodo, onCancelEd
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-8 mb-6 sm:mb-8">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
         <div>
-          <label className="block text-gray-700 text-lg font-medium mb-3">
+          <label className="block text-gray-700 text-base sm:text-lg font-medium mb-2 sm:mb-3">
             What would you like to do?
           </label>
           <input
@@ -44,7 +44,7 @@ const TodoForm = ({ onAddTodo, categories, editingTodo, onUpdateTodo, onCancelEd
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Enter your task..."
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-lg"
+            className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-base sm:text-lg"
           />
         </div>
 
@@ -53,7 +53,7 @@ const TodoForm = ({ onAddTodo, categories, editingTodo, onUpdateTodo, onCancelEd
           <select
             value={categoryId}
             onChange={(e) => setCategoryId(e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors"
+            className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none transition-colors text-base"
           >
             <option value="">Select Category</option>
             {categories.map(category => (
@@ -64,10 +64,10 @@ const TodoForm = ({ onAddTodo, categories, editingTodo, onUpdateTodo, onCancelEd
           </select>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button
             type="submit"
-            className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl font-medium transition-all transform hover:scale-105 shadow-lg"
+            className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl font-medium transition-all transform hover:scale-105 shadow-lg w-full sm:w-auto"
           >
             <Plus className="w-5 h-5" />
             {editingTodo ? 'Update Task' : 'Add Task'}
@@ -77,7 +77,7 @@ const TodoForm = ({ onAddTodo, categories, editingTodo, onUpdateTodo, onCancelEd
             <button
               type="button"
               onClick={handleCancel}
-              className="flex items-center gap-2 px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white rounded-xl font-medium transition-all"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white rounded-xl font-medium transition-all w-full sm:w-auto"
             >
               <X className="w-5 h-5" />
               Cancel
